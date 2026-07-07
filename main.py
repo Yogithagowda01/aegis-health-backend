@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 app = FastAPI(title="AegisHealth Enterprise Command Core API")
 
-# Harden CORS rules so Vercel can seamlessly read the data pipelines
+# Guaranteed CORS bypass headers
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Comprehensive dataset restoring all your original clinical telemetry nodes
+# Structured Data Matrix
 MOCK_CLINICS = [
     {
         "id": "AP-GNT-PHC-01",
@@ -66,6 +66,10 @@ MOCK_METRICS = {
 
 class OptimizeRequest(BaseModel):
     clinicId: str = None
+
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "AegisHealth Command Core API Gateway"}
 
 @app.get("/api/clinics")
 def get_clinics():
