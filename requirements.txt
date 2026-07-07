@@ -1,1 +1,6 @@
-fastapi uvicorn pandas google-genai google-cloud-bigquery 
+fastapi
+uvicorn
+pandas
+google-genai
+google-cloud-bigquery
+
